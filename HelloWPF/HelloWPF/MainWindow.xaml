@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:HelloWPF" xmlns:sys="clr-namespace:System;assembly=netstandard"
         mc:Ignorable="d"
-        Title="MainWindow" Height="360" Width="360"
+        Title="MainWindow" Height="600" Width="600"
         Background="{DynamicResource WindowBackgroundBrush}">
 
     <Window.Resources>
@@ -45,12 +45,29 @@
                 <AccessText Text="_Mail"/>
             </StackPanel>
         </Label>
-        <TextBox Name="txtMail" />
+        <TextBox Name="txtMail" SpellCheck.IsEnabled="true" Language="en-US"/>
 
-        <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Margin="0,20">
-            <Button Tag="en-US" Click="CultureInfoSwitchButton_Click" HorizontalContentAlignment="Stretch">English (US)</Button>
-            <Button Tag="de-DE" Click="CultureInfoSwitchButton_Click" HorizontalContentAlignment="Stretch" Margin="10,0">German (DE)</Button>
-            <Button Tag="sv-SE" Click="CultureInfoSwitchButton_Click" HorizontalContentAlignment="Stretch">Swedish (SE)</Button>
+        <StackPanel>
+            <Label FontWeight="Bold">Male or female?</Label>
+            <RadioButton GroupName="sex">Male</RadioButton>
+            <RadioButton GroupName="sex">Female</RadioButton>
+            <RadioButton GroupName="sex" IsChecked="True">Not sure</RadioButton>
+            <StackPanel Margin="5">
+                <Label Target="{Binding pwBox}">Password:</Label>
+                <PasswordBox Name="pwBox" MaxLength="8"/>
+            </StackPanel>
         </StackPanel>
+
+        
+        <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Margin="0,20">
+            <Button Tag="en-US" Click="CultureInfoSwitchButton_Click" HorizontalContentAlignment="Stretch" ToolTip="Show English date and number format." >English (US)</Button>
+            <Button Tag="de-DE" Click="CultureInfoSwitchButton_Click" HorizontalContentAlignment="Stretch" ToolTip="Show German date and number format." Margin="10,0">German (DE)</Button>
+            <Button Tag="sv-SE" Click="CultureInfoSwitchButton_Click" HorizontalContentAlignment="Stretch" ToolTip="Show Swedish date and number format." >Swedish (SE)</Button>
+        </StackPanel>
+        <DockPanel Margin="10">
+            <Label Target="{Binding ElementName=txtStatus}" Content="Selection tester: "></Label>
+            <TextBox SelectionChanged="TextBox_SelectionChanged" DockPanel.Dock="Top" />
+            <TextBox Name="txtStatus" AcceptsReturn="True" TextWrapping="Wrap" IsReadOnly="True" />
+        </DockPanel>
     </StackPanel>
 </Window>

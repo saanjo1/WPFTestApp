@@ -42,5 +42,13 @@ namespace HelloWPF
             Process.Start(new ProcessStartInfo(e.Uri.AbsoluteUri) { UseShellExecute = true });
 
         }
+
+        private void TextBox_SelectionChanged(object sender, RoutedEventArgs e)
+        {
+            TextBox text = sender as TextBox;
+            txtStatus.Text = "Selection starts at character #" + text.SelectionStart + Environment.NewLine;
+            txtStatus.Text += "Selection is " + text.SelectionLength + " character(s) long. " + Environment.NewLine;
+            txtStatus.Text += "Selected text: " + text.SelectedText + ".";
+        }
     }
 }
