@@ -17,9 +17,9 @@
         </LinearGradientBrush>
     </Window.Resources>
     <StackPanel Margin="20">
-
+        <TextBlock Margin="10" TextWrapping="Wrap">Follow the link: <Hyperlink RequestNavigate="Hyperlink_RequestNavigate" NavigateUri="https://www.google.com">Click here.</Hyperlink></TextBlock>
         <Grid>
-            <Grid.RowDefinitions>
+			<Grid.RowDefinitions>
                 <RowDefinition Height="Auto" />
                 <RowDefinition Height="Auto" />
             </Grid.RowDefinitions>

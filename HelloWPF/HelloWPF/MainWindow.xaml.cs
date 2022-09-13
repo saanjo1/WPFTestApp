@@ -14,6 +14,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using System.Diagnostics;
 
 namespace HelloWPF
 {
@@ -46,6 +47,12 @@ namespace HelloWPF
             Thread.CurrentThread.CurrentCulture = new CultureInfo((sender as Button).Tag.ToString());
             lblNumber.Content = (123456789.42d).ToString("N2");
             lblDate.Content = DateTime.Now.ToString();
+        }
+
+        private void Hyperlink_RequestNavigate(object sender, RequestNavigateEventArgs e)
+        {
+            Process.Start(new ProcessStartInfo(e.Uri.AbsoluteUri) { UseShellExecute = true });
+
         }
     }
 }
