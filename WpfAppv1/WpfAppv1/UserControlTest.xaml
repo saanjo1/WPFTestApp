@@ -4,10 +4,14 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:WpfAppv1"
-             mc:Ignorable="d" Height="618" Width="1142">
+             mc:Ignorable="d" Height="1240" Width="1242">
     <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="104*"/>
+            <ColumnDefinition Width="1139*"/>
+        </Grid.ColumnDefinitions>
         <Grid.RowDefinitions></Grid.RowDefinitions>
-        <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Top">
+        <StackPanel Orientation="Horizontal" HorizontalAlignment="Left" VerticalAlignment="Top" Grid.Column="1" Margin="128,0,0,0">
             <WrapPanel Margin="10" Height="22" Width="383">
                 <Button x:Name="Export" Content="Izvoz artikala"
                 Width="188" Click="Export_Click"/>
@@ -26,16 +30,16 @@
         </StackPanel>
 
         <DataGrid Name="dataGridStudent" AutoGenerateColumns="False" ColumnWidth="*"  RowBackground="WhiteSmoke"  
-                  Background="white" Margin="10,47,0,0">
+                  Background="white" Margin="10,47,0,0" Grid.ColumnSpan="2">
             <DataGrid.Columns>
                 <DataGridTextColumn Header="ID" Binding="{Binding ID}" Width="70"></DataGridTextColumn>
-                <DataGridTextColumn Header="ItemName" Binding="{Binding ItemName}" Width="70"></DataGridTextColumn>
+                <DataGridTextColumn Header="ItemName" Binding="{Binding ItemName}" Width="370"></DataGridTextColumn>
                 <DataGridTextColumn Header="Prijevodi" Binding="{Binding Prijevodi}" Width="140"></DataGridTextColumn>
                 <DataGridTextColumn Header="ColorDescription" Binding="{Binding ColorDescription}" Width="120"></DataGridTextColumn>
-                <DataGridTextColumn Header="ItemSize" Binding="{Binding ItemSize}" Width="170"></DataGridTextColumn>
-                <DataGridTextColumn Header="Gender" Binding="{Binding Gender}" Width="170"></DataGridTextColumn>
-                <DataGridTextColumn Header="BarCode" Binding="{Binding BarCode}" Width="170"></DataGridTextColumn>
-                <DataGridTextColumn Header="So_Price" Binding="{Binding So_Price}" Width="170"></DataGridTextColumn>
+                <DataGridTextColumn Header="ItemSize" Binding="{Binding ItemSize}" Width="70"></DataGridTextColumn>
+                <DataGridTextColumn Header="Gender" Binding="{Binding Gender}" Width="50"></DataGridTextColumn>
+                <DataGridTextColumn Header="BarCode" Binding="{Binding BarCode}" Width="100"></DataGridTextColumn>
+                <DataGridTextColumn Header="So_Price" Binding="{Binding So_Price}" Width="100"></DataGridTextColumn>
             </DataGrid.Columns>
         </DataGrid>
 

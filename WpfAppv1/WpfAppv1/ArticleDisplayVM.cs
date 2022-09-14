@@ -52,7 +52,8 @@ namespace WpfAppv1
                 {
                     ID = Reader["ITEM"].ToString(),
                     BarCode = Reader["BARCODE"].ToString(),
-                    ItemName = Reader["ITEM"].ToString() + Reader["BARCODE"].ToString(),
+                    ItemName = Reader["BARCODE"].ToString() + " " + Reader["ITEM"].ToString() + " "
+                    + Reader["prijevodi HRVATSKI"].ToString() + " " + Reader["COLOR_DESCRIPTION"].ToString() + " " + Reader["ITEM_SIZE"].ToString(),
                     ColorDescription = Reader["COLOR_DESCRIPTION"].ToString(),
                     Gender = Reader["GENDER"].ToString(),
                     So_Price = Reader["SO_PRICE"].ToString(),
