@@ -35,7 +35,7 @@ namespace WpfAppv1
             _objExcelSer = new ExcelDataService();
             try
             {
-                dataGridStudent.ItemsSource = _objExcelSer.ReadFromExcel().Result;
+                dataGridArticle.ItemsSource = _objExcelSer.ReadFromExcel().Result;
             }
             catch (Exception ex)
             {

@@ -24,6 +24,7 @@ namespace WpfAppv1
     {
         OleDbConnection conn;
         OleDbCommand Command;
+        ObservableCollection<ArticleDisplayVM> Articles = new ObservableCollection<ArticleDisplayVM>();
 
         public ExcelDataService()
         {
@@ -37,7 +38,6 @@ namespace WpfAppv1
 
         public async Task<ObservableCollection<ArticleDisplayVM>> ReadFromExcel()
         {
-            ObservableCollection<ArticleDisplayVM> Articles = new ObservableCollection<ArticleDisplayVM>();
 
             await conn.OpenAsync();
             Command = new OleDbCommand();
