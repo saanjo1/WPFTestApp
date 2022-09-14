@@ -4,11 +4,10 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:WpfAppv1"
-             mc:Ignorable="d" 
-             d:DesignHeight="450" d:DesignWidth="800">
+             mc:Ignorable="d" Height="618" Width="1142">
     <Grid>
         <Grid.RowDefinitions></Grid.RowDefinitions>
-        <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Center">
+        <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Top">
             <WrapPanel Margin="10" Height="22" Width="383">
                 <Button x:Name="Export" Content="Izvoz artikala"
                 Width="188" Click="Export_Click"/>
@@ -16,7 +15,7 @@
             Content="Uvoz artikala" 
              Width="186" Click="Import_Click"/>
             </WrapPanel>
-            <WrapPanel Orientation="Horizontal" Width="376" Height="23">
+            <WrapPanel Orientation="Horizontal"  Width="376" Height="23">
                 <Button x:Name="ImportCat"
             Content="Uvoz artikala sa kategorijama"
              Click="ImportCat_Click" Width="188"/>
@@ -25,6 +24,21 @@
                 Click="ExportCat_Click"/>
             </WrapPanel>
         </StackPanel>
+
+        <DataGrid Name="dataGridStudent" AutoGenerateColumns="False" ColumnWidth="*"  RowBackground="WhiteSmoke"  
+                  Background="white" Margin="10,47,0,0">
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="ID" Binding="{Binding ID}" Width="70"></DataGridTextColumn>
+                <DataGridTextColumn Header="ItemName" Binding="{Binding ItemName}" Width="70"></DataGridTextColumn>
+                <DataGridTextColumn Header="Prijevodi" Binding="{Binding Prijevodi}" Width="140"></DataGridTextColumn>
+                <DataGridTextColumn Header="ColorDescription" Binding="{Binding ColorDescription}" Width="120"></DataGridTextColumn>
+                <DataGridTextColumn Header="ItemSize" Binding="{Binding ItemSize}" Width="170"></DataGridTextColumn>
+                <DataGridTextColumn Header="Gender" Binding="{Binding Gender}" Width="170"></DataGridTextColumn>
+                <DataGridTextColumn Header="BarCode" Binding="{Binding BarCode}" Width="170"></DataGridTextColumn>
+                <DataGridTextColumn Header="So_Price" Binding="{Binding So_Price}" Width="170"></DataGridTextColumn>
+            </DataGrid.Columns>
+        </DataGrid>
+
 
     </Grid>
 </UserControl>
