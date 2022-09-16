@@ -6,7 +6,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace WpfAppv1
+namespace WpfAppv1.ViewModels
 {
     public class ArticleDisplayVM
     {
@@ -26,9 +26,10 @@ namespace WpfAppv1
         OleDbCommand Command;
         ObservableCollection<ArticleDisplayVM> Articles = new ObservableCollection<ArticleDisplayVM>();
 
+
         public ExcelDataService()
         {
-            string excelfile = @"C:\Users\asus\OneDrive\Desktop\DokumentacijaPraksa\ExcelFile.xls";
+            string excelfile = @"C:\Users\asus\OneDrive\Documents\ExcelFiles\Test.xls";
             string con =
                   @"Provider=Microsoft.ACE.OLEDB.12.0;Data Source=" + excelfile + ";" +
                   @"Extended Properties='Excel 8.0;HDR=Yes;';Persist Security Info=True";
@@ -54,10 +55,8 @@ namespace WpfAppv1
                     BarCode = Reader["BARCODE"].ToString(),
                     ItemName = Reader["BARCODE"].ToString() + " " + Reader["ITEM"].ToString() + " "
                     + Reader["prijevodi HRVATSKI"].ToString() + " " + Reader["COLOR_DESCRIPTION"].ToString() + " " + Reader["ITEM_SIZE"].ToString(),
-                    ColorDescription = Reader["COLOR_DESCRIPTION"].ToString(),
                     Gender = Reader["GENDER"].ToString(),
                     So_Price = Reader["SO_PRICE"].ToString(),
-                    Prijevodi = Reader["prijevodi HRVATSKI"].ToString(),
                     ItemSize = Reader["ITEM_SIZE"].ToString()
                 });
             }

@@ -13,7 +13,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
-
+using WpfAppv1.ViewModels;
 
 namespace WpfAppv1
 {
@@ -30,7 +30,7 @@ namespace WpfAppv1
             InitializeComponent();
         }
 
-            private void Import_Click(object sender, RoutedEventArgs e)
+            private void Prikaz_Click(object sender, RoutedEventArgs e)
         {
             _objExcelSer = new ExcelDataService();
             try
@@ -55,21 +55,12 @@ namespace WpfAppv1
 
         private void ExportCat_Click(object sender, RoutedEventArgs en)
         {
-            string excel_path = @"C:\Users\asus\OneDrive\Desktop\DokumentacijaPraksa\ExcelFile.xls";
-            string con =
-               @"Provider=Microsoft.ACE.OLEDB.12.0;Data Source=" + excel_path + ";" +
-               @"Extended Properties='Excel 8.0;HDR=Yes;';Persist Security Info=True";
-            using (OleDbConnection connection = new OleDbConnection(con))
-            {
-
-            }
+          
         }
 
-        public static bool ImportArticlesFromExcel(string excel_path = @"C:\Users\asus\OneDrive\Desktop\DokumentacijaPraksa\ExcelFile.xls", string tab_name = "Sheet1$", int barcode_index = 1, int name_index = 1, int price_ind = 1)
+        private void Import_Click(object sender, RoutedEventArgs e)
         {
 
-            
-            return true;
         }
     }
 }
