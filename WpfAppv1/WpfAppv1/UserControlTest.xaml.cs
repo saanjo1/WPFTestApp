@@ -13,6 +13,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using WpfAppv1.Models;
 using WpfAppv1.ViewModels;
 
 namespace WpfAppv1
@@ -24,6 +25,7 @@ namespace WpfAppv1
     {
         ExcelDataService _objExcelSer;
         ArticleDisplayVM _article = new ArticleDisplayVM();
+        possectorContext appContext = new possectorContext();
 
         public UserControlTest()
         {
@@ -60,7 +62,16 @@ namespace WpfAppv1
 
         private void Import_Click(object sender, RoutedEventArgs e)
         {
-
+            _objExcelSer = new ExcelDataService();
+            try
+            {
+                _objExcelSer.ImportToDatabase();
+                MessageBox.Show("Added to database.");
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
         }
     }
 }

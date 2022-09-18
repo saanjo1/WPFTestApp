@@ -1,8 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
-using WpfAppv1.Models;
 
-namespace WpfAppv1
+namespace WpfAppv1.Models
 {
     public partial class UserGroup
     {
