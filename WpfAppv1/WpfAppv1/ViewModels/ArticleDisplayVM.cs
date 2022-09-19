@@ -2,8 +2,10 @@
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Data.OleDb;
+using System.Globalization;
 using System.Linq;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 using WpfAppv1.Models;
 
@@ -48,6 +50,7 @@ namespace WpfAppv1.ViewModels
             Command.Connection = conn;
             Command.CommandText = "select * from [DETAILS$]";
 
+
             var Reader = await Command.ExecuteReaderAsync();
 
             while (Reader.Read())
@@ -72,8 +75,11 @@ namespace WpfAppv1.ViewModels
 
         public async void ImportToDatabase()
         {
+            var culture = new CultureInfo("en-US");
+
             for (int i = 0; i < Articles.Count(); i++)
             {
+                
                 var temp = appContext.Articles.Where(x => x.BarCode == Articles[i].BarCode).FirstOrDefault();
 
                 if(temp == null)
@@ -81,7 +87,7 @@ namespace WpfAppv1.ViewModels
                     appContext.Articles.Add(new Article
                     {
                         Name = Articles[i].ItemName,
-                        Price = 1,
+                        Price = Helpers.Extensions.GetDecimal(Articles[i].So_Price),
                         BarCode = Articles[i].BarCode,
                         ArticleNumber = 123,
                         SubCategoryId = Helpers.Extensions.ManageSubcategory(Articles[i].Gender),
@@ -89,7 +95,7 @@ namespace WpfAppv1.ViewModels
                         ReturnFee = 1,
                         Id = Guid.NewGuid(),
                         Order = 1
-                    });
+                    }) ;
                 }
                 
             }

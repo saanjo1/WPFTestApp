@@ -33,5 +33,13 @@ namespace WpfAppv1.Helpers
                 return x.Id;
             }
         }
+
+        public static decimal GetDecimal(string value)
+        {
+            if (value == "" && value == null)
+                return decimal.Parse("0");
+
+            return decimal.Parse(value);
+        }
     }
 }
