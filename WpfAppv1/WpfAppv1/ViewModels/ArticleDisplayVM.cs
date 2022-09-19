@@ -74,18 +74,24 @@ namespace WpfAppv1.ViewModels
         {
             for (int i = 0; i < Articles.Count(); i++)
             {
-                appContext.Articles.Add(new Article
+                var temp = appContext.Articles.Where(x => x.BarCode == Articles[i].BarCode).FirstOrDefault();
+
+                if(temp == null)
                 {
-                    Name = Articles[i].ItemName,
-                    Price = 1,
-                    BarCode = Articles[i].BarCode,
-                    ArticleNumber = 123,
-                    SubCategoryId = Helpers.Extensions.ManageSubcategory(Articles[i].Gender),
-                    Deleted = false,
-                    ReturnFee = 1,
-                    Id = Guid.NewGuid(),
-                    Order = 1
-                });
+                    appContext.Articles.Add(new Article
+                    {
+                        Name = Articles[i].ItemName,
+                        Price = 1,
+                        BarCode = Articles[i].BarCode,
+                        ArticleNumber = 123,
+                        SubCategoryId = Helpers.Extensions.ManageSubcategory(Articles[i].Gender),
+                        Deleted = false,
+                        ReturnFee = 1,
+                        Id = Guid.NewGuid(),
+                        Order = 1
+                    });
+                }
+                
             }
             appContext.SaveChanges();
 
